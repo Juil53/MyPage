@@ -1,25 +1,27 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import "./App.css";
+import { makeStyles } from "@mui/styles";
+import { CssBaseline } from "@mui/material";
+import Header from "./components/Header";
+import Place from "./components/Place";
 
-function App() {
+const useStyles = makeStyles((theme) => ({
+  root: {
+    minHeight: "100vh",
+    backgroundImage: `url(${process.env.PUBLIC_URL + "img/bgimage.jpg"})`,
+    backgroundRepeat: "no-repeat",
+    backgroundSize: "cover",
+  },
+}));
+
+export default function App() {
+
+  const classes = useStyles();
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className={classes.root}>
+      <CssBaseline />
+      <Header />
+      <Place />
     </div>
   );
 }
-
-export default App;
